@@ -12,7 +12,7 @@ const AuthNavigation = createStackNavigator();
 export default () => (
   <NavigationContainer>
     <AuthNavigation.Navigator initialRouteName="AuthHome" headerMode="none">
-      <AuthNavigation.Screen name="HomeScreen" component={AuthHome} />
+      <AuthNavigation.Screen name="AuthHome" component={AuthHome} />
       <AuthNavigation.Screen name="Login" component={Login} />
       <AuthNavigation.Screen name="Signup" component={SignUp} />
       <AuthNavigation.Screen name="Confirm" component={Confirm} />
