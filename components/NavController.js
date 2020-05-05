@@ -7,7 +7,7 @@ import TabNavigation from "../navigation/TabNavigation";
 export default () => {
   const isLoggedIn = true;
   return (
-    <View style={{ flex: "1" }}>
+    <View style={{ flex: 1 }}>
       {isLoggedIn ? <TabNavigation /> : <AuthNavigation />}
     </View>
   );

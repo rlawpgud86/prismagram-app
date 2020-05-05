@@ -15,7 +15,7 @@
     "apollo-boost": "^0.4.7",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-cache-persist": "^0.1.1",
-    "expo": "~37.0.3",
+    "expo": "^37.0.8",
     "expo-asset": "~8.1.4",
     "expo-font": "~8.1.0",
     "graphql": "^15.0.0",
@@ -28,12 +28,12 @@
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "~2.2.0",
     "react-native-web": "~0.11.7",
-    "react-navigation": "^4.3.7",
+    "react-navigation": "^4.3.9",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "~8.1.0",
-    "@babel/core": "^7.8.6"
+    "@babel/core": "^7.9.6",
+    "babel-preset-expo": "~8.1.0"
   },
   "private": true
 }
