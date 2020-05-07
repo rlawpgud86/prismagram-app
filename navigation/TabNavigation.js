@@ -1,34 +1,74 @@
 import "react-native-gesture-handler";
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../screens/Home";
-import Profile from "../screens/Profile";
-import Search from "../screens/Search";
-import Notifications from "../screens/Notifications";
+import Home from "../screens/Tabs/Home";
+import Profile from "../screens/Tabs/Profile";
+import Search from "../screens/Tabs/Search";
+import Notifications from "../screens/Tabs/Notifications";
+import stackFactory from "./stackFactory";
+import MessagesLink from "../components/MessagesLink";
+import { View } from "react-native";
 
 const TabNavigation = createBottomTabNavigator();
 
 export default () => {
   return (
-    <NavigationContainer>
-      <TabNavigation.Navigator>
-        <TabNavigation.Screen name="Home" component={Home} />
-        <TabNavigation.Screen name="Profile" component={Profile} />
-        <TabNavigation.Screen
-          name="Add"
-          component={View}
-          listeners={{
-            tabPress: (e) => {
-              e.preventDefault();
-              console.log("add");
-            },
-          }}
-        />
-        <TabNavigation.Screen name="Search" component={Search} />
-        <TabNavigation.Screen name="Notifications" component={Notifications} />
-      </TabNavigation.Navigator>
-    </NavigationContainer>
+    <TabNavigation.Navigator>
+      <TabNavigation.Screen
+        name="Home"
+        component={stackFactory}
+        initialParams={{
+          initialRoute: Home,
+          customConfig: {
+            title: "Home",
+            headerTitleAlign: "center",
+            headerRight: () => <MessagesLink />,
+          },
+        }}
+      />
+      <TabNavigation.Screen
+        name="Profile"
+        component={stackFactory}
+        initialParams={{
+          initialRoute: Profile,
+          customConfig: {
+            title: "Profile",
+            headerTitleAlign: "center",
+          },
+        }}
+      />
+      <TabNavigation.Screen
+        name="Add"
+        component={View}
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            navigation.navigate("PhotoNavigation");
+          },
+        })}
+      />
+      <TabNavigation.Screen
+        name="Search"
+        component={stackFactory}
+        initialParams={{
+          initialRoute: Search,
+          customConfig: {
+            title: "Search",
+            headerTitleAlign: "center",
+          },
+        }}
+      />
+      <TabNavigation.Screen
+        name="Notifications"
+        component={stackFactory}
+        initialParams={{
+          initialRoute: Notifications,
+          customConfig: {
+            title: "Notifications",
+            headerTitleAlign: "center",
+          },
+        }}
+      />
+    </TabNavigation.Navigator>
   );
 };
