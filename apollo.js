@@ -1,5 +1,5 @@
 const options = {
-  uri: "http://localhost:4000/graphql",
+  uri: "http://11360246.ngrok.io",
 };
 
 export default options;
